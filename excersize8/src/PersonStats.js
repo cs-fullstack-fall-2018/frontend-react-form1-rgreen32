@@ -39,3 +39,5 @@ class PersonStats extends Component{
     }
 }
 export default PersonStats
+
+// The message isn't displaying once after the submit button is pressed. Change the code so the message is being saved in your submit function for the classwork to be correct.
