@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 
 class PersonStats extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state ={name:"", age:"", mood:""}
     }
 
@@ -14,10 +14,11 @@ class PersonStats extends Component{
     };
     updateMood = (event) =>{
         this.setState({mood: event.target.value})
-    }
+    };
     submitFunction = (event) => {
+        this.setState({sentence: ("Hello"+ this.state.name + ". Your age is" + this.state.age + "and you're feeling " + this.state.mood)  })
         event.preventDefault();
-    }
+    };
     render(){
         return(
             <div>
@@ -30,9 +31,12 @@ class PersonStats extends Component{
                     <input type="text" id="age" value={this.state.age} onChange={this.updateAge}/>
 
                     <label htmlFor="mood">Mood: </label>
-                    <input type="text" id="mood" value={this.state.mood} onChange={this.updateMood}/>
+                    <input type="text" id="mood" value={this.state.mood} onChange={this.updateMood}/> <br/>
+                    <br/>
+
+                    {this.state.sentence}
                     <button>Submit</button>
-                    <p>Hello {this.state.name}. Your age is {this.state.age} and you're feeling {this.state.mood} </p>
+
                 </form>
             </div>
         )
